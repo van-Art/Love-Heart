@@ -33,14 +33,6 @@ body {
   outline: none;
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  border: 8px solid;
-  inset: 1rem;
-  z-index: 100;
-  pointer-events: none;
-}
 
 h1 {
   position: absolute;
