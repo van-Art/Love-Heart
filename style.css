@@ -8,19 +8,13 @@
 
 html,
 body {
-  width: 100%;
-  height: 100%;
   overflow: hidden;
   background: #16000a;
 }
 
 body {
-  position: relative;
   -webkit-font-smoothing: antialiased;
   color: #ffdada;
-  border: none;
-  outline: none;
-  box-shadow: none;
 }
 
 .h1text {
@@ -32,14 +26,20 @@ body {
 
 .webgl {
   position: fixed;
-  top: -24px;
-  left: -24px;
-  width: calc(100vw + 48px);
-  height: calc(100vh + 48px);
-  display: block;
-  border: none;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
   outline: none;
-  box-shadow: none;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  border: 8px solid;
+  inset: 1rem;
+  z-index: 100;
+  pointer-events: none;
 }
 
 h1 {
@@ -51,7 +51,6 @@ h1 {
   font-family: ador-hairline, sans-serif;
   font-weight: 900;
   font-size: max(1rem, 3vh);
-  z-index: 2;
 }
 
 button {
@@ -59,28 +58,16 @@ button {
   left: 0;
   top: 0;
   bottom: 0;
-  right: 0;
-  margin: auto;
   height: 12vh;
   width: 12vh;
   transform: translateY(2vh);
+  right: 0;
+  margin: auto;
   -webkit-appearance: none;
-  appearance: none;
   background: transparent;
   color: inherit;
   border: none;
-  outline: none;
-  box-shadow: none;
   cursor: pointer;
-  z-index: 2;
-}
-
-button:focus,
-button:focus-visible,
-canvas:focus,
-canvas:focus-visible {
-  outline: none;
-  box-shadow: none;
 }
 
 svg {
