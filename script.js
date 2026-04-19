@@ -1,4 +1,3 @@
-
 import * as THREE from "https://cdn.skypack.dev/three@0.135.0";
 import { gsap } from "https://cdn.skypack.dev/gsap@3.8.0";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.135.0/examples/jsm/loaders/GLTFLoader";
@@ -122,11 +121,9 @@ class World {
   }
   listenToResize() {
     window.addEventListener("resize", () => {
-      // Update sizes
       this.width = window.innerWidth;
       this.height = window.innerHeight;
 
-      // Update camera
       this.camera.aspect = this.width / this.height;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(this.width, this.height);
@@ -155,15 +152,12 @@ class World {
             "https://assets.codepen.io/74321/heart.png")
         }
       },
-
-
-
       depthWrite: false,
       blending: THREE.AdditiveBlending,
       transparent: true
     });
 
-    const count = this.parameters.count; //2000
+    const count = this.parameters.count;
     const scales = new Float32Array(count * 1);
     const colors = new Float32Array(count * 3);
     const speeds = new Float32Array(count);
@@ -293,7 +287,6 @@ class World {
     return new Promise(resolve => {
       const listener = new THREE.AudioListener();
       this.camera.add(listener);
-      // create a global audio source
       this.sound = new THREE.Audio(listener);
       const audioLoader = new THREE.AudioLoader();
       audioLoader.load(
@@ -304,7 +297,6 @@ class World {
           this.sound.setVolume(0.5);
           this.sound.play();
           this.analyser = new THREE.AudioAnalyser(this.sound, 32);
-          // get the average frequency of the sound
           const data = this.analyser.getAverageFrequency();
           this.isRunning = true;
           this.t0 = this.time.elapsed;
@@ -337,9 +329,6 @@ class World {
             "https://assets.codepen.io/74321/heart.png")
         }
       },
-
-
-
       depthWrite: false,
       blending: THREE.AdditiveBlending,
       transparent: true
@@ -399,11 +388,9 @@ class World {
   }
 }
 
-
 const world = new World({
   canvas: document.querySelector("canvas.webgl"),
   cameraPosition: { x: 0, y: 0, z: 4.5 }
 });
-
 
 world.loop();
