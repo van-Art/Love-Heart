@@ -15,6 +15,7 @@ body {
 }
 
 body {
+  position: relative;
   -webkit-font-smoothing: antialiased;
   color: #ffdada;
   border: none;
@@ -31,9 +32,10 @@ body {
 
 .webgl {
   position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
+  top: -24px;
+  left: -24px;
+  width: calc(100vw + 48px);
+  height: calc(100vh + 48px);
   display: block;
   border: none;
   outline: none;
@@ -49,6 +51,7 @@ h1 {
   font-family: ador-hairline, sans-serif;
   font-weight: 900;
   font-size: max(1rem, 3vh);
+  z-index: 2;
 }
 
 button {
@@ -69,6 +72,7 @@ button {
   outline: none;
   box-shadow: none;
   cursor: pointer;
+  z-index: 2;
 }
 
 button:focus,
